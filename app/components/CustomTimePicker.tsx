@@ -57,7 +57,7 @@ export default function CustomTimePicker({ value, onChange, className }: CustomT
       </button>
 
       {isOpen && (
-        <div className="absolute z-20 w-[300px] mt-1 bg-white border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        <div className="absolute z-20 mt-1 bg-white border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
           <div className="flex">
             {/* Hours */}
             <div className="flex-1 max-h-[300px] overflow-y-auto border-r-2 border-black">

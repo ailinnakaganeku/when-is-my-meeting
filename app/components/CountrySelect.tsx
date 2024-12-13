@@ -110,13 +110,13 @@ export default function CountrySelect({ value, onChange, className, disabled }: 
                   const searchTerm = e.target.value.toLowerCase();
                   Array.from(searchBox.children).forEach((child) => {
                     const text = child.textContent?.toLowerCase() || '';
-                    (child as HTMLElement).style.display = text.includes(searchTerm) ? 'block' : 'none';
+                    (child as HTMLElement).style.display = text.includes(searchTerm) ? 'flex' : 'none';
                   });
                 }
               }}
             />
           </div>
-          <div className="p-1">
+          <div className="p-1"> 
             {countries.map((country) => (
               <button
                 key={country.timeZone}
