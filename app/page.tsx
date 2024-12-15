@@ -39,7 +39,7 @@ export default function Home() {
   }, [fromCountry, toCountry, selectedTime]);
 
   return (
-    <main className="min-h-screen bg-white flex flex-col">
+    <main className="min-h-screen bg-[#f0f0f0] flex flex-col bg-[url('/grid.svg')] bg-repeat">
       <div className="flex-grow p-4 flex flex-col items-center justify-center">
         <div className="w-full max-w-4xl space-y-4">
           {/* Header with decorations */}
