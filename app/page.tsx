@@ -76,7 +76,7 @@ export default function Home() {
           <div className="bg-white border-4 border-black rounded-2xl p-4 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 items-start">
               <div className="space-y-4">
-                <div className="bg-blue-100 p-4 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-1">
+                <div className="bg-blue-100 px-4 py-6 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-1">
                   <h2 className="font-bold mb-3 text-lg">From</h2>
                   <CountrySelect
                     value={fromCountry}
@@ -84,7 +84,7 @@ export default function Home() {
                   />
                 </div>
 
-                <div className="bg-blue-100 p-4 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <div className="bg-blue-100 px-4 py-6 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                   <h2 className="font-bold mb-3 text-lg">Time</h2>
                   <CustomTimePicker
                     value={selectedTime}
@@ -102,14 +102,14 @@ export default function Home() {
               </div>
 
               <div className="space-y-4">
-                <div className="bg-green-100 p-4 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -rotate-1">
+                <div className="bg-green-100 px-4 py-6 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -rotate-1">
                   <h2 className="font-bold mb-3 text-lg">To</h2>
                   <CountrySelect value={toCountry} onChange={setToCountry} />
                 </div>
 
-                <div className="bg-green-100 p-4 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <div className="bg-green-100 px-4 py-6 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                   <h2 className="font-bold mb-3 text-lg">Converted Time</h2>
-                  <div className="flex items-center gap-2 border-2 border-black bg-white p-3 rounded-lg">
+                  <div className="flex items-center gap-3 border-2 border-black bg-white p-3 rounded">
                     <Clock className="w-5 h-5" />
                     <span className="text-xl font-mono">
                       {convertedTime || "--:-- --"}

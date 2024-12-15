@@ -190,7 +190,7 @@ export default function CustomTimePicker({
       }}
     >
       <div
-        className="flex items-center justify-between space-x-2 w-full p-3 bg-white border-2 border-black rounded-lg font-mono text-xl cursor-pointer"
+        className="flex items-center justify-between space-x-2 w-full p-3 bg-white border-2 border-black rounded font-mono text-xl cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="w-full flex items-center gap-2">
@@ -260,7 +260,7 @@ export default function CustomTimePicker({
       {isOpen && (
         <div
           ref={dropdownRef}
-          className="absolute z-10 mt-1 bg-white border-2 border-black rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+          className="absolute z-10 mt-1 bg-white border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
         >
           <div className="flex">
             {/* Hours */}

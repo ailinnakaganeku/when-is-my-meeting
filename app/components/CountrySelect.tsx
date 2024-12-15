@@ -175,7 +175,7 @@ export default function CountrySelect({ value, onChange }: CountrySelectProps) {
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-full p-3 bg-white border-2 border-black rounded-lg text-left font-medium"
+        className="flex items-center justify-between w-full p-3 bg-white border-2 border-black rounded text-left font-medium"
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
@@ -188,7 +188,7 @@ export default function CountrySelect({ value, onChange }: CountrySelectProps) {
 
       {isOpen && (
         <ul
-          className="absolute z-10 w-full mt-1 bg-white border-2 border-black rounded-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] max-h-60 overflow-auto"
+          className="absolute z-10 w-full mt-1 bg-white border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] max-h-60 overflow-auto"
           role="listbox"
         >
           {countries.map((country) => (
