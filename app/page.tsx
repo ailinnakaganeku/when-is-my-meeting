@@ -39,7 +39,7 @@ export default function Home() {
   }, [fromCountry, toCountry, selectedTime]);
 
   return (
-    <main className="min-h-screen bg-[#f0f0f0] flex flex-col bg-[url('/grid.svg')] bg-repeat">
+    <main className="min-h-screen bg-[#f0f0f0] flex flex-col bg-[url('/image.png')] bg-no-repeat bg-cover bg-center">
       <div className="flex-grow p-4 flex flex-col items-center justify-center">
         <div className="w-full max-w-4xl space-y-4">
           <div className="relative">
@@ -59,7 +59,7 @@ export default function Home() {
               </svg>
             </div>
 
-            <div className="p-4 rounded-lg transform -rotate-2 max-w-fit">
+            <div className="p-4 max-w-fit">
               <h1 className="text-2xl md:text-4xl font-black flex items-center gap-2">
                 When is my meeting?
                 <span
@@ -102,12 +102,12 @@ export default function Home() {
               </div>
 
               <div className="space-y-4">
-                <div className="bg-green-100 px-4 py-6 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <div className="bg-purple-100 px-4 py-6 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                   <h2 className="font-bold mb-3 text-lg">To</h2>
                   <CountrySelect value={toCountry} onChange={setToCountry} />
                 </div>
 
-                <div className="bg-green-100 px-4 py-6 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <div className="bg-purple-100 px-4 py-6 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                   <h2 className="font-bold mb-3 text-lg">Converted Time</h2>
                   <div className="flex items-center gap-3 border-2 border-black bg-white p-3 rounded">
                     <Clock className="w-5 h-5" />

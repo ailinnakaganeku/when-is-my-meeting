@@ -1,22 +1,21 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
+import "./globals.css";
+import { Rubik_Mono_One } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] })
+const rubik = Rubik_Mono_One({ subsets: ["latin"], weight: "400" });
 
 export const metadata = {
-  title: 'Time Zone Converter',
-  description: 'Convert time between different countries',
-}
+  title: "Time Zone Converter",
+  description: "Convert time between different countries",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={rubik.className}>{children}</body>
     </html>
-  )
+  );
 }
-
