@@ -83,7 +83,7 @@ export default function CustomTimePicker({
 
     if (section === "hours") {
       setSelectedHour(newValue);
-      setIsHourValid(true); 
+      setIsHourValid(true);
     } else {
       if (parseInt(newValue) >= 0 && parseInt(newValue) <= 59) {
         setSelectedMinute(newValue);
@@ -234,7 +234,7 @@ export default function CustomTimePicker({
               }}
               onFocus={() => setFocusedSection("minutes")}
               maxLength={2}
-              aria-label="Minutos"
+              aria-label="Minutes"
             />
             <span
               className={cn(
@@ -263,7 +263,6 @@ export default function CustomTimePicker({
           className="absolute z-10 mt-1 bg-white border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
         >
           <div className="flex">
-            {/* Hours */}
             <div className="flex-1 max-h-[200px] overflow-y-auto border-r-2 border-black">
               {hours.map((hour) => (
                 <button
@@ -283,7 +282,6 @@ export default function CustomTimePicker({
               ))}
             </div>
 
-            {/* Minutes */}
             <div className="flex-1 max-h-[200px] overflow-y-auto border-r-2 border-black">
               {minutes.map((minute) => (
                 <button
@@ -303,7 +301,6 @@ export default function CustomTimePicker({
               ))}
             </div>
 
-            {/* AM/PM */}
             <div className="flex-1">
               {["AM", "PM"].map((period) => (
                 <button
@@ -328,4 +325,3 @@ export default function CustomTimePicker({
     </div>
   );
 }
-
