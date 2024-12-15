@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { addMinutes } from "date-fns";
 import { formatInTimeZone, getTimezoneOffset } from "date-fns-tz";
-import { Clock } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 import CountrySelect from "./components/CountrySelect";
 import CustomTimePicker from "./components/CustomTimePicker";
 
@@ -17,7 +17,7 @@ export default function Home() {
     // Detect user's country and timezone
     fetch("https://ipapi.co/json/")
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         setFromCountry(timezone);
       })
@@ -37,10 +37,6 @@ export default function Home() {
       setConvertedTime(converted);
     }
   }, [fromCountry, toCountry, selectedTime]);
-
-  const resetToCurrentTime = () => {
-    setSelectedTime(new Date());
-  };
 
   return (
     <main className="min-h-screen bg-white flex flex-col">
@@ -84,7 +80,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 items-start">
               <div className="space-y-4">
                 {/* From Section */}
-                <div className="bg-blue-100 p-4 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <div className="bg-blue-100 p-4 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-1">
                   <h2 className="font-bold mb-3 text-lg">From</h2>
                   <CountrySelect
                     value={fromCountry}
@@ -105,31 +101,15 @@ export default function Home() {
               </div>
 
               {/* Arrow */}
-              <div className="flex items-center justify-center my-4 md:mt-16 hidden md:block">
-                <button
-                  onClick={() => {
-                    const tempCountry = fromCountry;
-                    setFromCountry(toCountry);
-                    setToCountry(tempCountry);
-                  }}
-                  className="bg-yellow-300 p-2 rounded-full border-2 border-black hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
-                  aria-label="Swap countries"
-                >
-                  <svg
-                    className="w-6 h-6"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M20 17H4M4 17L8 13M4 17L8 21M4 7H20M20 7L16 3M20 7L16 11" />
-                  </svg>
-                </button>
+              <div className="hidden md:flex justify-center items-center h-full">
+                <div className="bg-yellow-300 p-4 rounded-full border-4 border-black transform shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <ArrowRight size={32} />
+                </div>
               </div>
 
               <div className="space-y-4">
                 {/* To Section */}
-                <div className="bg-green-100 p-4 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                <div className="bg-green-100 p-4 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -rotate-1">
                   <h2 className="font-bold mb-3 text-lg">To</h2>
                   <CountrySelect value={toCountry} onChange={setToCountry} />
                 </div>
@@ -145,16 +125,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Reset Button */}
-            <div className="mt-8 flex justify-center">
-              <button
-                onClick={resetToCurrentTime}
-                className="bg-yellow-300 px-6 py-2 rounded-lg border-2 border-black font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
-              >
-                Reset to Current Time
-              </button>
             </div>
           </div>
         </div>

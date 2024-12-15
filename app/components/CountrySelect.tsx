@@ -4,7 +4,6 @@ import { useState, useRef, useEffect } from 'react'
 import { ChevronDown } from 'lucide-react'
 
 const countries = [
-  // América
   { name: 'Argentina', flag: '🇦🇷', timeZone: 'America/Argentina/Buenos_Aires', gmtOffset: 'GMT-3' },
   { name: 'Bolivia', flag: '🇧🇴', timeZone: 'America/La_Paz', gmtOffset: 'GMT-4' },
   { name: 'Brazil', flag: '🇧🇷', timeZone: 'America/Sao_Paulo', gmtOffset: 'GMT-3' },
@@ -30,7 +29,6 @@ const countries = [
   { name: 'Uruguay', flag: '🇺🇾', timeZone: 'America/Montevideo', gmtOffset: 'GMT-3' },
   { name: 'Venezuela', flag: '🇻🇪', timeZone: 'America/Caracas', gmtOffset: 'GMT-4' },
 
-  // Europa
   { name: 'Albania', flag: '🇦🇱', timeZone: 'Europe/Tirane', gmtOffset: 'GMT+2' },
   { name: 'Austria', flag: '🇦🇹', timeZone: 'Europe/Vienna', gmtOffset: 'GMT+2' },
   { name: 'Belarus', flag: '🇧🇾', timeZone: 'Europe/Minsk', gmtOffset: 'GMT+3' },
@@ -71,7 +69,6 @@ const countries = [
   { name: 'Ukraine', flag: '🇺🇦', timeZone: 'Europe/Kiev', gmtOffset: 'GMT+3' },
   { name: 'United Kingdom', flag: '🇬🇧', timeZone: 'Europe/London', gmtOffset: 'GMT+1' },
 
-  // Asia
   { name: 'Afghanistan', flag: '🇦🇫', timeZone: 'Asia/Kabul', gmtOffset: 'GMT+4:30' },
   { name: 'Armenia', flag: '🇦🇲', timeZone: 'Asia/Yerevan', gmtOffset: 'GMT+4' },
   { name: 'Azerbaijan', flag: '🇦🇿', timeZone: 'Asia/Baku', gmtOffset: 'GMT+4' },
@@ -122,7 +119,6 @@ const countries = [
   { name: 'Vietnam', flag: '🇻🇳', timeZone: 'Asia/Ho_Chi_Minh', gmtOffset: 'GMT+7' },
   { name: 'Yemen', flag: '🇾🇪', timeZone: 'Asia/Aden', gmtOffset: 'GMT+3' },
 
-  // Oceanía
   { name: 'Australia', flag: '🇦🇺', timeZone: 'Australia/Sydney', gmtOffset: 'GMT+10' },
   { name: 'Fiji', flag: '🇫🇯', timeZone: 'Pacific/Fiji', gmtOffset: 'GMT+12' },
   { name: 'Kiribati', flag: '🇰🇮', timeZone: 'Pacific/Tarawa', gmtOffset: 'GMT+12' },
@@ -138,7 +134,6 @@ const countries = [
   { name: 'Tuvalu', flag: '🇹🇻', timeZone: 'Pacific/Funafuti', gmtOffset: 'GMT+12' },
   { name: 'Vanuatu', flag: '🇻🇺', timeZone: 'Pacific/Efate', gmtOffset: 'GMT+11' },
 
-  // África (principales países)
   { name: 'Algeria', flag: '🇩🇿', timeZone: 'Africa/Algiers', gmtOffset: 'GMT+1' },
   { name: 'Angola', flag: '🇦🇴', timeZone: 'Africa/Luanda', gmtOffset: 'GMT+1' },
   { name: 'Egypt', flag: '🇪🇬', timeZone: 'Africa/Cairo', gmtOffset: 'GMT+2' },
