@@ -45,7 +45,7 @@ export default function Home() {
           {/* Header with decorations */}
           <div className="relative">
             {/* Curved arrow decoration */}
-            <div className="absolute right-0 -top-16 md:-right-16 w-32 h-32 hidden md:block">
+            <div className="absolute right-0 -top-4 md:-right-16 w-32 h-32 hidden md:block rotate-12">
               <svg
                 width="134"
                 height="83"
