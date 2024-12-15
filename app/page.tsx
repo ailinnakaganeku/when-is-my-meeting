@@ -42,9 +42,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#f0f0f0] flex flex-col bg-[url('/grid.svg')] bg-repeat">
       <div className="flex-grow p-4 flex flex-col items-center justify-center">
         <div className="w-full max-w-4xl space-y-4">
-          {/* Header with decorations */}
           <div className="relative">
-            {/* Curved arrow decoration */}
             <div className="absolute right-0 -top-4 md:-right-16 w-32 h-32 hidden md:block rotate-12">
               <svg
                 width="134"
@@ -75,11 +73,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Main Container */}
           <div className="bg-white border-4 border-black rounded-2xl p-4 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 items-start">
               <div className="space-y-4">
-                {/* From Section */}
                 <div className="bg-blue-100 p-4 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rotate-1">
                   <h2 className="font-bold mb-3 text-lg">From</h2>
                   <CountrySelect
@@ -88,7 +84,6 @@ export default function Home() {
                   />
                 </div>
 
-                {/* Time Section */}
                 <div className="bg-blue-100 p-4 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                   <h2 className="font-bold mb-3 text-lg">Time</h2>
                   <CustomTimePicker
@@ -100,7 +95,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Arrow */}
               <div className="hidden md:flex justify-center items-center h-full">
                 <div className="bg-yellow-300 p-4 rounded-full border-4 border-black transform shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                   <ArrowRight size={32} />
@@ -108,13 +102,11 @@ export default function Home() {
               </div>
 
               <div className="space-y-4">
-                {/* To Section */}
                 <div className="bg-green-100 p-4 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -rotate-1">
                   <h2 className="font-bold mb-3 text-lg">To</h2>
                   <CountrySelect value={toCountry} onChange={setToCountry} />
                 </div>
 
-                {/* Converted Time Section */}
                 <div className="bg-green-100 p-4 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                   <h2 className="font-bold mb-3 text-lg">Converted Time</h2>
                   <div className="flex items-center gap-2 border-2 border-black bg-white p-3 rounded-lg">
