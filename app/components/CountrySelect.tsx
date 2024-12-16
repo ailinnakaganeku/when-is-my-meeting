@@ -706,7 +706,7 @@ export default function CountrySelect({ value, onChange }: CountrySelectProps) {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          <ul className="max-h-40 md:max-h-60 overflow-y-auto" role="listbox">
+          <ul className="max-h-40 md:max-h-60" role="listbox">
             {memoizedCountries
               .filter(
                 (country) =>
