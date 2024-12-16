@@ -241,6 +241,7 @@ export default function CustomTimePicker({
               onClick={(e) => {
                 e.stopPropagation();
                 setFocusedSection("period");
+                setIsOpen(!isOpen)
               }}
               onKeyDown={(e) => handleKeyDown(e, "period")}
               tabIndex={0}

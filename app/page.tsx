@@ -108,7 +108,7 @@ export default function Home() {
                   </h2>
                   <div className="flex items-center gap-3 border-2 border-black bg-white p-3 rounded">
                     <Clock className="w-4 h-4 md:w-5 md:h-5 opacity-50" />
-                    <span className="text-md md:text-xl font-mono">
+                    <span className="text-md md:text-xl font-mono font-bold">
                       {convertedTime || "--:-- --"}
                     </span>
                   </div>
