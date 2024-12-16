@@ -235,7 +235,7 @@ export default function CustomTimePicker({
             />
             <span
               className={cn(
-                "rounded-lg ml-3 cursor-pointer",
+                "rounded-lg ml-1 md:ml-3 cursor-pointer",
                 focusedSection === "period" && "bg-blue-200"
               )}
               onClick={(e) => {
