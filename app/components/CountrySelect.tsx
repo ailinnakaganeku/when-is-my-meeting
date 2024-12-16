@@ -688,9 +688,7 @@ export default function CountrySelect({ value, onChange }: CountrySelectProps) {
           <span className="text-lg" aria-hidden="true">
             {selectedCountry.flag}
           </span>
-          {selectedCountry
-            ? `${selectedCountry.name} ${selectedCountry.gmtOffset}`
-            : "gmtOffset"}
+          {selectedCountry.name} ({selectedCountry.gmtOffset})
         </span>
         <ChevronDown className="w-4 h-4 md:w-5 md:h-5 opacity-50" />
       </button>
