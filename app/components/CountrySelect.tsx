@@ -650,13 +650,27 @@ export default function CountrySelect({ value, onChange }: CountrySelectProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const selectedCountry = countries.find((c) => c.timeZone === value) || {
-    name: value.split("/").pop()?.replace("_", " "),
-    flag: "🌍",
-    timeZone: value,
-    gmtOffset: "GMT Unknown",
-  };
-  const memoizedCountries = useMemo(() => countries, []);
+
+  const selectedCountry = useMemo(
+    () =>
+      countries.find((c) => c.timeZone === value) || {
+        name: value.split("/").pop()?.replace("_", " "),
+        flag: "🌍",
+        timeZone: value,
+        gmtOffset: "GMT Unknown",
+      },
+    [value]
+  );
+
+  const filteredCountries = useMemo(
+    () =>
+      countries.filter(
+        (country) =>
+          country.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          country.timeZone.toLowerCase().includes(searchTerm.toLowerCase())
+      ),
+    [searchTerm]
+  );
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -706,36 +720,26 @@ export default function CountrySelect({ value, onChange }: CountrySelectProps) {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          <ul className="max-h-44 md:max-h-56 " role="listbox">
-            {memoizedCountries
-              .filter(
-                (country) =>
-                  country.name
-                    .toLowerCase()
-                    .includes(searchTerm.toLowerCase()) ||
-                  country.timeZone
-                    .toLowerCase()
-                    .includes(searchTerm.toLowerCase())
-              )
-              .map((country) => (
-                <li key={country.timeZone}>
-                  <button
-                    type="button"
-                    className="flex items-center w-full p-3 hover:bg-gray-50 gap-2 text-left"
-                    onClick={() => {
-                      onChange(country.timeZone);
-                      setIsOpen(false);
-                    }}
-                    role="option"
-                    aria-selected={country.timeZone === value}
-                  >
-                    <span className="text-lg" aria-hidden="true">
-                      {country.flag}
-                    </span>
-                    {country.name} ({country.gmtOffset})
-                  </button>
-                </li>
-              ))}
+          <ul className="max-h-44 md:max-h-56" role="listbox">
+            {filteredCountries.map((country) => (
+              <li key={country.timeZone}>
+                <button
+                  type="button"
+                  className="flex items-center w-full p-3 hover:bg-gray-50 gap-2 text-left"
+                  onClick={() => {
+                    onChange(country.timeZone);
+                    setIsOpen(false);
+                  }}
+                  role="option"
+                  aria-selected={country.timeZone === value}
+                >
+                  <span className="text-lg" aria-hidden="true">
+                    {country.flag}
+                  </span>
+                  {country.name} ({country.gmtOffset})
+                </button>
+              </li>
+            ))}
           </ul>
         </div>
       )}
