@@ -9,7 +9,7 @@ import CustomTimePicker from "./components/CustomTimePicker";
 
 export default function Home() {
   const [fromCountry, setFromCountry] = useState("");
-  const [toCountry, setToCountry] = useState("Europe/London");
+  const [toCountry, setToCountry] = useState("America/New_York");
   const [selectedTime, setSelectedTime] = useState(new Date());
   const [convertedTime, setConvertedTime] = useState("");
 
@@ -39,7 +39,7 @@ export default function Home() {
   }, [fromCountry, toCountry, selectedTime]);
 
   return (
-    <main className="min-h-screen bg-[#f0f0f0] flex flex-col bg-[url('/image.png')] bg-no-repeat bg-cover bg-center">
+    <main className="min-h-screen bg-[#f0f0f0] flex flex-col bg-[url('/image.webp')] bg-no-repeat bg-cover bg-center">
       <div className="flex-grow p-4 flex flex-col items-center justify-center">
         <div className="w-full max-w-4xl space-y-4">
           <div className="relative">
@@ -59,16 +59,9 @@ export default function Home() {
               </svg>
             </div>
 
-            <div className="p-4 max-w-fit">
-              <h1 className="text-2xl md:text-4xl font-black flex items-center gap-2">
+            <div className="p-4 w-full bg-yellow-300 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-2 md:max-w-fit">
+              <h1 className="tracking-tight text-xl md:text-4xl font-black flex items-center justify-start md:gap-2">
                 When is my meeting?
-                <span
-                  role="img"
-                  aria-label="thinking face"
-                  className="text-2xl md:text-3xl"
-                >
-                  🤔
-                </span>
               </h1>
             </div>
           </div>
@@ -77,7 +70,9 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 items-start">
               <div className="space-y-4">
                 <div className="bg-blue-100 px-4 py-6 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <h2 className="font-bold mb-3 text-lg">From</h2>
+                  <h2 className="font-bold mb-3 text-sm md:text-lg tracking-tight">
+                    From
+                  </h2>
                   <CountrySelect
                     value={fromCountry}
                     onChange={setFromCountry}
@@ -85,7 +80,9 @@ export default function Home() {
                 </div>
 
                 <div className="bg-blue-100 px-4 py-6 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <h2 className="font-bold mb-3 text-lg">Time</h2>
+                  <h2 className="font-bold mb-3 text-sm md:text-lg tracking-tight">
+                    Time
+                  </h2>
                   <CustomTimePicker
                     value={selectedTime}
                     onChange={(newTime) => {
@@ -103,15 +100,19 @@ export default function Home() {
 
               <div className="space-y-4">
                 <div className="bg-purple-100 px-4 py-6 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <h2 className="font-bold mb-3 text-lg">To</h2>
+                  <h2 className="font-bold mb-3 text-sm md:text-lg tracking-tight">
+                    To
+                  </h2>
                   <CountrySelect value={toCountry} onChange={setToCountry} />
                 </div>
 
                 <div className="bg-purple-100 px-4 py-6 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                  <h2 className="font-bold mb-3 text-lg">Converted Time</h2>
+                  <h2 className="font-bold mb-3 text-sm md:text-lg tracking-tight">
+                    Converted Time
+                  </h2>
                   <div className="flex items-center gap-3 border-2 border-black bg-white p-3 rounded">
-                    <Clock className="w-5 h-5" />
-                    <span className="text-xl font-mono">
+                    <Clock className="w-4 h-4 md:w-5 md:h-5 opacity-50" />
+                    <span className="text-md md:text-xl font-mono">
                       {convertedTime || "--:-- --"}
                     </span>
                   </div>

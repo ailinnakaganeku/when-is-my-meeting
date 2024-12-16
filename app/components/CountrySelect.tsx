@@ -659,7 +659,7 @@ export default function CountrySelect({ value, onChange }: CountrySelectProps) {
           </span>
           {selectedCountry.name} ({selectedCountry.gmtOffset})
         </span>
-        <ChevronDown className="w-5 h-5 opacity-50" />
+        <ChevronDown className="w-4 h-4 md:w-5 md:h-5 opacity-50" />
       </button>
 
       {isOpen && (

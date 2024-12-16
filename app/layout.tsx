@@ -1,7 +1,12 @@
 import "./globals.css";
-import { Rubik_Mono_One } from "next/font/google";
+import { Rubik_Mono_One, Inter } from "next/font/google";
 
-const rubik = Rubik_Mono_One({ subsets: ["latin"], weight: "400" });
+const rubik = Rubik_Mono_One({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-rubik",
+});
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata = {
   title: "Time Zone Converter",
@@ -14,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={rubik.className}>{children}</body>
+    <html lang="en" className={`${rubik.variable} ${inter.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
