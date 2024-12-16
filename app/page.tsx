@@ -7,26 +7,12 @@ import CountrySelect from "./components/CountrySelect";
 import CustomTimePicker from "./components/CustomTimePicker";
 
 export default function Home() {
-  const [fromCountry, setFromCountry] = useState("");
+  const [fromCountry, setFromCountry] = useState(
+    Intl.DateTimeFormat().resolvedOptions().timeZone
+  );
   const [toCountry, setToCountry] = useState("America/New_York");
   const [selectedTime, setSelectedTime] = useState(new Date());
-  const [convertedTime, setConvertedTime] = useState("");
-
-  useEffect(() => {
-    const browserTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-    fetch("https://ipapi.co/json/", { mode: "cors" })
-      .then((res) => res.json())
-      .then((data) => {
-        const detectedTimeZone = data.timezone || browserTimeZone;
-        setFromCountry(detectedTimeZone);
-      })
-      .catch(() => {
-        const fallbackTimeZone =
-          Intl.DateTimeFormat().resolvedOptions().timeZone;
-        setFromCountry(fallbackTimeZone);
-      });
-  }, []);
+  const [convertedTime, setConvertedTime] = useState("--:-- --");
 
   useEffect(() => {
     if (fromCountry && toCountry && selectedTime) {
@@ -110,7 +96,7 @@ export default function Home() {
                   <div className="flex items-center gap-3 border-2 border-black bg-white p-3 rounded">
                     <Clock className="w-4 h-4 md:w-5 md:h-5 opacity-50" />
                     <span className="text-md md:text-xl font-mono font-bold">
-                      {convertedTime || "--:-- --"}
+                      {convertedTime}
                     </span>
                   </div>
                 </div>
