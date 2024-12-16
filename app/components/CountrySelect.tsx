@@ -121,10 +121,46 @@ const countries = [
     gmtOffset: "GMT-4",
   },
   {
-    name: "United States",
+    name: "United States (New York)",
     flag: "🇺🇸",
     timeZone: "America/New_York",
     gmtOffset: "GMT-4",
+  },
+  {
+    name: "United States (Chicago)",
+    flag: "🇺🇸",
+    timeZone: "America/Chicago",
+    gmtOffset: "GMT-6",
+  },
+  {
+    name: "United States (Denver)",
+    flag: "🇺🇸",
+    timeZone: "America/Denver",
+    gmtOffset: "GMT-7",
+  },
+  {
+    name: "United States (Los Angeles)",
+    flag: "🇺🇸",
+    timeZone: "America/Los_Angeles",
+    gmtOffset: "GMT-8",
+  },
+  {
+    name: "United States (Anchorage)",
+    flag: "🇺🇸",
+    timeZone: "America/Anchorage",
+    gmtOffset: "GMT-9",
+  },
+  {
+    name: "United States (Honolulu)",
+    flag: "🇺🇸",
+    timeZone: "Pacific/Honolulu",
+    gmtOffset: "GMT-10",
+  },
+  {
+    name: "United States (Phoenix)",
+    flag: "🇺🇸",
+    timeZone: "America/Phoenix",
+    gmtOffset: "GMT-7",
   },
   {
     name: "Uruguay",

@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { addMinutes } from "date-fns";
-import { formatInTimeZone, getTimezoneOffset } from "date-fns-tz";
+import { formatInTimeZone } from "date-fns-tz";
 import { ArrowRight, Clock } from "lucide-react";
 import CountrySelect from "./components/CountrySelect";
 import CustomTimePicker from "./components/CustomTimePicker";
@@ -14,26 +13,23 @@ export default function Home() {
   const [convertedTime, setConvertedTime] = useState("");
 
   useEffect(() => {
-    // Detect user's country and timezone
     fetch("https://ipapi.co/json/")
       .then((res) => res.json())
-      .then(() => {
-        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        setFromCountry(timezone);
+      .then((data) => {
+        const detectedTimeZone =
+          data.timezone || Intl.DateTimeFormat().resolvedOptions().timeZone;
+        setFromCountry(detectedTimeZone);
       })
       .catch(() => {
-        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        setFromCountry(timezone);
+        const fallbackTimeZone =
+          Intl.DateTimeFormat().resolvedOptions().timeZone;
+        setFromCountry(fallbackTimeZone);
       });
   }, []);
 
   useEffect(() => {
     if (fromCountry && toCountry && selectedTime) {
-      const fromOffset = getTimezoneOffset(fromCountry) / (60 * 1000);
-      const toOffset = getTimezoneOffset(toCountry) / (60 * 1000);
-      const diffMinutes = toOffset - fromOffset;
-      const convertedDate = addMinutes(selectedTime, diffMinutes);
-      const converted = formatInTimeZone(convertedDate, toCountry, "hh:mm a");
+      const converted = formatInTimeZone(selectedTime, toCountry, "hh:mm a");
       setConvertedTime(converted);
     }
   }, [fromCountry, toCountry, selectedTime]);
