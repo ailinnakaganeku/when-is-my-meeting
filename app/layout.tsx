@@ -9,7 +9,7 @@ const rubik = Rubik_Mono_One({
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata = {
-  title: "Time Zone Converter",
+  title: "When is my meeting?",
   description: "Convert time between different countries",
 };
 
