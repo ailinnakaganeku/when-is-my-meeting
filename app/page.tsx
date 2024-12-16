@@ -13,11 +13,12 @@ export default function Home() {
   const [convertedTime, setConvertedTime] = useState("");
 
   useEffect(() => {
-    fetch("https://ipapi.co/json/")
+    const browserTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    fetch("https://ipapi.co/json/", { mode: "cors" })
       .then((res) => res.json())
       .then((data) => {
-        const detectedTimeZone =
-          data.timezone || Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const detectedTimeZone = data.timezone || browserTimeZone;
         setFromCountry(detectedTimeZone);
       })
       .catch(() => {
