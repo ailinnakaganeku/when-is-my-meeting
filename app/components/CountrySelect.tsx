@@ -694,7 +694,7 @@ export default function CountrySelect({ value, onChange }: CountrySelectProps) {
 
       {isOpen && (
         <div
-          className="absolute z-50 w-full mt-1 bg-white border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] max-h-60 overflow-auto"
+          className="absolute z-50 w-full mt-1 bg-white border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] max-h-40 md:max-h-60 overflow-auto"
           role="listbox"
         >
           <input
