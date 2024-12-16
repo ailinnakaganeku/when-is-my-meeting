@@ -121,40 +121,28 @@ const countries = [
     gmtOffset: "GMT-4",
   },
   {
-    name: "United States NY",
+    name: "United States EST",
     flag: "🇺🇸",
     timeZone: "America/New_York",
-    gmtOffset: "GMT-4",
+    gmtOffset: "GMT-5",
   },
   {
-    name: "United States LA",
-    flag: "🇺🇸",
-    timeZone: "America/Los_Angeles",
-    gmtOffset: "GMT-8",
-  },
-  {
-    name: "United States Chicago",
+    name: "United States CST",
     flag: "🇺🇸",
     timeZone: "America/Chicago",
     gmtOffset: "GMT-6",
   },
   {
-    name: "United States Denver",
+    name: "United States MST",
     flag: "🇺🇸",
     timeZone: "America/Denver",
     gmtOffset: "GMT-7",
   },
   {
-    name: "United States Alaska",
+    name: "United States PST",
     flag: "🇺🇸",
-    timeZone: "America/Anchorage",
-    gmtOffset: "GMT-9",
-  },
-  {
-    name: "United States Hawaii",
-    flag: "🇺🇸",
-    timeZone: "Pacific/Honolulu",
-    gmtOffset: "GMT-10",
+    timeZone: "America/Los_Angeles",
+    gmtOffset: "GMT-8",
   },
   {
     name: "Uruguay",
@@ -538,12 +526,11 @@ const countries = [
     gmtOffset: "GMT+7",
   },
   { name: "Yemen", flag: "🇾🇪", timeZone: "Asia/Aden", gmtOffset: "GMT+3" },
-
   {
-    name: "Australia",
+    name: "Australia AET",
     flag: "🇦🇺",
     timeZone: "Australia/Sydney",
-    gmtOffset: "GMT+10",
+    gmtOffset: "GMT+11",
   },
   { name: "Fiji", flag: "🇫🇯", timeZone: "Pacific/Fiji", gmtOffset: "GMT+12" },
   {
@@ -657,7 +644,7 @@ export default function CountrySelect({ value, onChange }: CountrySelectProps) {
         name: value.split("/").pop()?.replace("_", " "),
         flag: "🌍",
         timeZone: value,
-        gmtOffset: "GMT Unknown",
+        gmtOffset: "GMT",
       },
     [value]
   );
@@ -701,7 +688,9 @@ export default function CountrySelect({ value, onChange }: CountrySelectProps) {
           <span className="text-lg" aria-hidden="true">
             {selectedCountry.flag}
           </span>
-          {selectedCountry.name} ({selectedCountry.gmtOffset})
+          {selectedCountry
+            ? `${selectedCountry.name} ${selectedCountry.gmtOffset}`
+            : "gmtOffset"}
         </span>
         <ChevronDown className="w-4 h-4 md:w-5 md:h-5 opacity-50" />
       </button>
