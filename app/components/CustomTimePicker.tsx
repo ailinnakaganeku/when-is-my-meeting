@@ -135,10 +135,7 @@ export default function CustomTimePicker({
           setSelectedHour(newValue.slice(-2));
           setIsHourValid(true);
         } else {
-          const newValue = (
-            (section === "hours" ? selectedHour : selectedMinute).slice(1) +
-            e.key
-          ).padStart(2, "0");
+          const newValue = (selectedMinute.slice(1) + e.key).padStart(2, "0");
           const numValue = parseInt(newValue);
 
           if (numValue >= 0 && numValue <= 59) {
