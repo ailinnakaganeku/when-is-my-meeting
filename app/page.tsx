@@ -116,6 +116,20 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <div className="text-center">
+            <p>
+              Made by{" "}
+              <a
+                href="https://www.linkedin.com/in/ailinak/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Visit LinkedIn"
+                className="text-[#0077B5]"
+              >
+                @ailinn
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </main>
