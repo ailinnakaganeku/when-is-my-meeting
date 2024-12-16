@@ -261,7 +261,7 @@ export default function CustomTimePicker({
           className="absolute z-10 mt-1 bg-white border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
         >
           <div className="flex">
-            <div className="flex-1 max-h-[200px] overflow-y-auto border-r-2 border-black">
+            <div className="flex-1 max-h-36 overflow-y-auto border-r-2 border-black">
               {hours.map((hour) => (
                 <button
                   key={hour}
@@ -280,7 +280,7 @@ export default function CustomTimePicker({
               ))}
             </div>
 
-            <div className="flex-1 max-h-[200px] overflow-y-auto border-r-2 border-black">
+            <div className="flex-1 max-h-36 overflow-y-auto border-r-2 border-black">
               {minutes.map((minute) => (
                 <button
                   key={minute}
