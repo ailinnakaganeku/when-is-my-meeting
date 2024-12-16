@@ -694,7 +694,7 @@ export default function CountrySelect({ value, onChange }: CountrySelectProps) {
 
       {isOpen && (
         <div
-          className="absolute z-50 w-full mt-1 bg-white border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] max-h-40 md:max-h-60 overflow-auto"
+          className="absolute z-50 w-full mt-1 bg-white border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] max-h-44 md:max-h-56 overflow-auto"
           role="listbox"
         >
           <div className="sticky top-0 bg-white z-10 p-2 border-b-2 border-black">
@@ -706,7 +706,7 @@ export default function CountrySelect({ value, onChange }: CountrySelectProps) {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          <ul className="max-h-40 md:max-h-60" role="listbox">
+          <ul className="max-h-44 md:max-h-56 " role="listbox">
             {memoizedCountries
               .filter(
                 (country) =>
