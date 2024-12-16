@@ -190,7 +190,7 @@ export default function CustomTimePicker({
         className="flex items-center justify-between space-x-2 w-full p-3 bg-white border-2 border-black rounded font-mono text-md md:text-xl cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <div className="w-full flex items-center gap-2">
+        <div className="w-full flex items-center gap-3">
           <Clock className="w-4 h-4 md:w-5 md:h-5 opacity-50" />
           <div>
             <input
@@ -201,7 +201,7 @@ export default function CustomTimePicker({
               onKeyDown={(e) => handleKeyDown(e, "hours")}
               onBlur={() => handleBlur("hours")}
               className={cn(
-                "w-8 bg-transparent text-center outline-none",
+                "w-6 bg-transparent text-center outline-none",
                 focusedSection === "hours" && "bg-blue-200"
               )}
               onClick={(e) => {
@@ -214,7 +214,7 @@ export default function CustomTimePicker({
               aria-invalid={!isHourValid}
               aria-describedby="hour-error"
             />
-            <span>:</span>
+            <span className="w-fit">:</span>
             <input
               type="text"
               inputMode="numeric"
@@ -222,7 +222,7 @@ export default function CustomTimePicker({
               onChange={(e) => handleInputChange(e, "minutes")}
               onKeyDown={(e) => handleKeyDown(e, "minutes")}
               className={cn(
-                "w-8 bg-transparent text-center outline-none",
+                "w-6 bg-transparent text-center outline-none",
                 focusedSection === "minutes" && "bg-blue-200"
               )}
               onClick={(e) => {
@@ -235,7 +235,7 @@ export default function CustomTimePicker({
             />
             <span
               className={cn(
-                "px-1 rounded-lg ml-1 cursor-pointer",
+                "rounded-lg ml-3 cursor-pointer",
                 focusedSection === "period" && "bg-blue-200"
               )}
               onClick={(e) => {
