@@ -218,12 +218,12 @@ const countries = [
     timeZone: "Europe/Helsinki",
     gmtOffset: "GMT+3",
   },
-  { name: "France", flag: "🇫🇷", timeZone: "Europe/Paris", gmtOffset: "GMT+2" },
+  { name: "France", flag: "🇫🇷", timeZone: "Europe/Paris", gmtOffset: "GMT+1" },
   {
     name: "Germany",
     flag: "🇩🇪",
     timeZone: "Europe/Berlin",
-    gmtOffset: "GMT+2",
+    gmtOffset: "GMT+1",
   },
   { name: "Greece", flag: "🇬🇷", timeZone: "Europe/Athens", gmtOffset: "GMT+3" },
   {
@@ -244,7 +244,7 @@ const countries = [
     timeZone: "Europe/Dublin",
     gmtOffset: "GMT+1",
   },
-  { name: "Italy", flag: "🇮🇹", timeZone: "Europe/Rome", gmtOffset: "GMT+2" },
+  { name: "Italy", flag: "🇮🇹", timeZone: "Europe/Rome", gmtOffset: "GMT+1" },
   { name: "Latvia", flag: "🇱🇻", timeZone: "Europe/Riga", gmtOffset: "GMT+3" },
   {
     name: "Lithuania",
@@ -289,7 +289,7 @@ const countries = [
     name: "Portugal",
     flag: "🇵🇹",
     timeZone: "Europe/Lisbon",
-    gmtOffset: "GMT+1",
+    gmtOffset: "GMT+0",
   },
   {
     name: "Romania",
@@ -316,7 +316,7 @@ const countries = [
     timeZone: "Europe/Ljubljana",
     gmtOffset: "GMT+2",
   },
-  { name: "Spain", flag: "🇪🇸", timeZone: "Europe/Madrid", gmtOffset: "GMT+2" },
+  { name: "Spain", flag: "🇪🇸", timeZone: "Europe/Madrid", gmtOffset: "GMT+1" },
   {
     name: "Sweden",
     flag: "🇸🇪",
@@ -327,21 +327,14 @@ const countries = [
     name: "Switzerland",
     flag: "🇨🇭",
     timeZone: "Europe/Zurich",
-    gmtOffset: "GMT+2",
+    gmtOffset: "GMT+1",
   },
   { name: "Ukraine", flag: "🇺🇦", timeZone: "Europe/Kiev", gmtOffset: "GMT+3" },
   {
     name: "United Kingdom",
     flag: "🇬🇧",
     timeZone: "Europe/London",
-    gmtOffset: "GMT+1",
-  },
-
-  {
-    name: "Afghanistan",
-    flag: "🇦🇫",
-    timeZone: "Asia/Kabul",
-    gmtOffset: "GMT+4:30",
+    gmtOffset: "GMT+0",
   },
   { name: "Armenia", flag: "🇦🇲", timeZone: "Asia/Yerevan", gmtOffset: "GMT+4" },
   { name: "Azerbaijan", flag: "🇦🇿", timeZone: "Asia/Baku", gmtOffset: "GMT+4" },
@@ -619,12 +612,6 @@ const countries = [
     flag: "🇿🇦",
     timeZone: "Africa/Johannesburg",
     gmtOffset: "GMT+2",
-  },
-  {
-    name: "Tanzania",
-    flag: "🇹🇿",
-    timeZone: "Africa/Dar_es_Salaam",
-    gmtOffset: "GMT+3",
   },
 ];
 
