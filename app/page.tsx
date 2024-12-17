@@ -11,8 +11,12 @@ export default function Home() {
     Intl.DateTimeFormat().resolvedOptions().timeZone
   );
   const [toCountry, setToCountry] = useState("America/New_York");
-  const [selectedTime, setSelectedTime] = useState(new Date());
+  const [selectedTime, setSelectedTime] = useState<Date | null>(null);
   const [convertedTime, setConvertedTime] = useState("--:-- --");
+
+  useEffect(() => {
+    return setSelectedTime(new Date());
+  }, []);
 
   useEffect(() => {
     if (fromCountry && toCountry && selectedTime) {
