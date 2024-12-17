@@ -3,27 +3,35 @@
 import { useState, useEffect } from "react";
 import { formatInTimeZone } from "date-fns-tz";
 import { ArrowRight, Clock } from "lucide-react";
+import { useHydration } from "./hooks/useHydration";
+import { Skeleton } from "./components/ui/skeleton";
 import CountrySelect from "./components/CountrySelect";
 import CustomTimePicker from "./components/CustomTimePicker";
 
 export default function Home() {
-  const [fromCountry, setFromCountry] = useState(
-    Intl.DateTimeFormat().resolvedOptions().timeZone
+  const hydrated = useHydration();
+  const [fromCountry, setFromCountry] = useState("");
+  const [toCountry, setToCountry] = useState("");
+  const [selectedTime, setSelectedTime] = useState<string>(
+    "2023-01-01T00:00:00.000Z"
   );
-  const [toCountry, setToCountry] = useState("America/New_York");
-  const [selectedTime, setSelectedTime] = useState<Date | null>(null);
   const [convertedTime, setConvertedTime] = useState("--:-- --");
 
   useEffect(() => {
-    return setSelectedTime(new Date());
-  }, []);
+    if (hydrated) {
+      setFromCountry(Intl.DateTimeFormat().resolvedOptions().timeZone);
+      setToCountry("America/New_York");
+      setSelectedTime(new Date().toISOString());
+    }
+  }, [hydrated]);
 
   useEffect(() => {
-    if (fromCountry && toCountry && selectedTime) {
-      const converted = formatInTimeZone(selectedTime, toCountry, "hh:mm a");
+    if (hydrated && fromCountry && toCountry && selectedTime) {
+      const dateObject = new Date(selectedTime);
+      const converted = formatInTimeZone(dateObject, toCountry, "hh:mm a");
       setConvertedTime(converted);
     }
-  }, [fromCountry, toCountry, selectedTime]);
+  }, [hydrated, fromCountry, toCountry, selectedTime]);
 
   return (
     <main className="min-h-screen bg-[#f0f0f0] flex flex-col bg-[url('/image.webp')] bg-no-repeat bg-cover bg-center">
@@ -47,9 +55,15 @@ export default function Home() {
             </div>
 
             <div className="p-4 w-full bg-yellow-300 rounded-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform -rotate-2 md:max-w-fit">
-              <h1 className="tracking-tight text-xl md:text-4xl font-medium md:font-black flex items-center justify-start md:gap-2">
-                When is my meeting?
-              </h1>
+              {hydrated && fromCountry && toCountry && selectedTime ? (
+                <h1 className="tracking-tight text-xl md:text-4xl font-medium md:font-black flex items-center justify-start md:gap-2">
+                  When is my meeting?
+                </h1>
+              ) : (
+                <h1 className="tracking-tight text-xl md:text-4xl font-medium md:font-black flex items-center justify-start md:gap-2">
+                  Loading...
+                </h1>
+              )}
             </div>
           </div>
 
@@ -60,22 +74,30 @@ export default function Home() {
                   <h2 className="font-medium md:font-bold mb-3 text-sm md:text-lg tracking-tight">
                     From
                   </h2>
-                  <CountrySelect
-                    value={fromCountry}
-                    onChange={setFromCountry}
-                  />
+                  {hydrated && fromCountry && toCountry && selectedTime ? (
+                    <CountrySelect
+                      value={fromCountry}
+                      onChange={setFromCountry}
+                    />
+                  ) : (
+                    <Skeleton className="h-[56px] w-full border-2 border-black rounded" />
+                  )}
                 </div>
 
                 <div className="bg-blue-100 px-4 py-6 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                   <h2 className="font-medium md:font-bold mb-3 text-sm md:text-lg tracking-tight">
                     Time
                   </h2>
-                  <CustomTimePicker
-                    value={selectedTime}
-                    onChange={(newTime) => {
-                      setSelectedTime(newTime);
-                    }}
-                  />
+                  {hydrated && fromCountry && toCountry && selectedTime ? (
+                    <CustomTimePicker
+                      value={new Date(selectedTime)}
+                      onChange={(newDate) =>
+                        setSelectedTime(newDate.toISOString())
+                      }
+                    />
+                  ) : (
+                    <Skeleton className="h-[56px] w-full border-2 border-black rounded" />
+                  )}
                 </div>
               </div>
 
@@ -90,19 +112,27 @@ export default function Home() {
                   <h2 className="font-medium md:font-bold mb-3 text-sm md:text-lg tracking-tight">
                     To
                   </h2>
-                  <CountrySelect value={toCountry} onChange={setToCountry} />
+                  {hydrated && fromCountry && toCountry && selectedTime ? (
+                    <CountrySelect value={toCountry} onChange={setToCountry} />
+                  ) : (
+                    <Skeleton className="h-[56px] w-full border-2 border-black rounded" />
+                  )}
                 </div>
 
                 <div className="bg-purple-100 px-4 py-6 rounded-xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                   <h2 className="font-medium md:font-bold mb-3 text-sm md:text-lg tracking-tight">
                     Converted Time
                   </h2>
-                  <div className="flex items-center gap-3 border-2 border-black bg-white p-3 rounded">
-                    <Clock className="w-4 h-4 md:w-5 md:h-5 opacity-50" />
-                    <span className="text-md md:text-xl font-mono font-bold">
-                      {convertedTime}
-                    </span>
-                  </div>
+                  {hydrated && fromCountry && toCountry && selectedTime ? (
+                    <div className="flex items-center gap-3 border-2 border-black bg-white p-3 rounded">
+                      <Clock className="w-4 h-4 md:w-5 md:h-5 opacity-50" />
+                      <span className="text-md md:text-xl font-mono font-bold">
+                        {convertedTime}
+                      </span>
+                    </div>
+                  ) : (
+                    <Skeleton className="h-[56px] w-full border-2 border-black rounded" />
+                  )}
                 </div>
               </div>
             </div>
