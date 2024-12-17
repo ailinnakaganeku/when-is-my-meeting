@@ -18,7 +18,7 @@ export const metadata = {
     siteName: "When is my meeting?",
     images: [
       {
-        url: "/favicon.ico",
+        url: "/mac.png",
         width: 32,
         height: 32,
       },
