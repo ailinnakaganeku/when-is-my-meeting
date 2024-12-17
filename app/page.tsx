@@ -197,7 +197,7 @@ export default function Home() {
                 title="Visit LinkedIn"
                 className="text-[#0077B5]"
               >
-                @ailinn
+                @ailinnakaganeku
               </a>
             </p>
           </div>
