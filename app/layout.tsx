@@ -11,6 +11,21 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export const metadata = {
   title: "When is my meeting?",
   description: "Convert time between different countries",
+  openGraph: {
+    title: "When is my meeting?",
+    description: "Convert time between different countries",
+    url: "https://whenismymeeting.vercel.app/",
+    siteName: "When is my meeting?",
+    images: [
+      {
+        url: "/favicon.ico",
+        width: 32,
+        height: 32,
+      },
+    ],
+    locale: "en-US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
