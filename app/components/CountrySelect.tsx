@@ -23,10 +23,16 @@ const countries = [
     gmtOffset: "GMT-3",
   },
   {
-    name: "Canada",
+    name: "Canada EC",
     flag: "🇨🇦",
     timeZone: "America/Toronto",
     gmtOffset: "GMT-4",
+  },
+  {
+    name: "Canada WC",
+    flag: "🇨🇦",
+    timeZone: "America/Vancouver",
+    gmtOffset: "GMT-8",
   },
   {
     name: "Chile",
@@ -174,12 +180,6 @@ const countries = [
     name: "Belgium",
     flag: "🇧🇪",
     timeZone: "Europe/Brussels",
-    gmtOffset: "GMT+2",
-  },
-  {
-    name: "Bosnia and Herzegovina",
-    flag: "🇧🇦",
-    timeZone: "Europe/Sarajevo",
     gmtOffset: "GMT+2",
   },
   {
@@ -559,12 +559,6 @@ const countries = [
     gmtOffset: "GMT+10",
   },
   { name: "Samoa", flag: "🇼🇸", timeZone: "Pacific/Apia", gmtOffset: "GMT+13" },
-  {
-    name: "Solomon Islands",
-    flag: "🇸🇧",
-    timeZone: "Pacific/Guadalcanal",
-    gmtOffset: "GMT+11",
-  },
   {
     name: "Tonga",
     flag: "🇹🇴",
