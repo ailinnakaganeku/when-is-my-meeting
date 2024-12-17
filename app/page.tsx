@@ -191,7 +191,7 @@ export default function Home() {
             <p>
               Made by{" "}
               <a
-                href="https://www.linkedin.com/in/ailinak/"
+                href="https://www.linkedin.com/in/ailinn/"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Visit LinkedIn"
