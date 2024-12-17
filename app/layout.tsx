@@ -14,7 +14,7 @@ export const metadata = {
   openGraph: {
     title: "When is my meeting?",
     description: "Convert time between different countries",
-    url: "https://whenismymeeting.vercel.app/",
+    url: "https://whenismymeeting-ailinn.vercel.app/",
     siteName: "When is my meeting?",
     images: [
       {
