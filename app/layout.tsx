@@ -18,7 +18,7 @@ export const metadata = {
     siteName: "When is my meeting?",
     images: [
       {
-        url: "/mac.png",
+        url: "/preview.png",
         width: 32,
         height: 32,
       },
