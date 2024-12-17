@@ -187,10 +187,10 @@ export default function CustomTimePicker({
       }}
     >
       <div
-        className="flex items-center justify-between space-x-2 w-full p-3 bg-white border-2 border-black rounded font-mono text-md md:text-xl cursor-pointer"
+        className="flex items-center justify-between w-full p-3 bg-white border-2 border-black rounded font-mono text-md md:text-xl cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <div className="w-full flex items-center gap-3">
+        <div className="flex items-center gap-3">
           <Clock className="w-4 h-4 md:w-5 md:h-5 opacity-50" />
           <div>
             <input
@@ -241,7 +241,7 @@ export default function CustomTimePicker({
               onClick={(e) => {
                 e.stopPropagation();
                 setFocusedSection("period");
-                setIsOpen(!isOpen)
+                setIsOpen(!isOpen);
               }}
               onKeyDown={(e) => handleKeyDown(e, "period")}
               tabIndex={0}
