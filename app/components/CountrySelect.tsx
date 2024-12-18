@@ -520,7 +520,7 @@ const countries = [
   },
   { name: "Yemen", flag: "🇾🇪", timeZone: "Asia/Aden", gmtOffset: "GMT+3" },
   {
-    name: "Australia AET",
+    name: "Australia AEST",
     flag: "🇦🇺",
     timeZone: "Australia/Sydney",
     gmtOffset: "GMT+11",
