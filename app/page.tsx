@@ -10,7 +10,7 @@ import CustomTimePicker from "./components/CustomTimePicker";
 
 export default function Home() {
   const hydrated = useHydration();
-  const [fromCountry, setFromCountry] = useState("");
+  const [fromCountry, setFromCountry] = useState("America/New_York");
   const [toCountry, setToCountry] = useState("");
   const [selectedTime, setSelectedTime] = useState<string>(
     "2023-01-01T00:00:00.000Z"
@@ -19,11 +19,19 @@ export default function Home() {
 
   useEffect(() => {
     if (hydrated) {
-      setFromCountry(Intl.DateTimeFormat().resolvedOptions().timeZone);
-      setToCountry("America/New_York");
-      setSelectedTime(new Date().toISOString());
+      setToCountry(Intl.DateTimeFormat().resolvedOptions().timeZone);
     }
   }, [hydrated]);
+
+  useEffect(() => {
+    if (hydrated && fromCountry) {
+      const now = new Date();
+      const fromCountryTime = new Date(
+        now.toLocaleString("en-US", { timeZone: fromCountry })
+      );
+      setSelectedTime(fromCountryTime.toISOString());
+    }
+  }, [fromCountry, hydrated]);
 
   useEffect(() => {
     if (hydrated && fromCountry && toCountry && selectedTime) {
@@ -45,7 +53,7 @@ export default function Home() {
           10
         );
         const month =
-          parseInt(parts.find((p) => p.type === "month")?.value || "1", 10) - 1; // JS months are 0-based
+          parseInt(parts.find((p) => p.type === "month")?.value || "1", 10) - 1;
         const day = parseInt(
           parts.find((p) => p.type === "day")?.value || "1",
           10
@@ -197,7 +205,7 @@ export default function Home() {
                 title="Visit LinkedIn"
                 className="text-[#0077B5]"
               >
-                @ailinnakaganeku
+                @ailinn
               </a>
             </p>
           </div>
