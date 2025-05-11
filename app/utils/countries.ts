@@ -14,7 +14,6 @@ export const countries = [
     { name: 'South Africa', timeZone: 'Africa/Johannesburg' },
     { name: 'Spain', timeZone: 'Europe/Madrid' },
     { name: 'Italy', timeZone: 'Europe/Rome' },
-    // Add more countries as needed
   ]
   
   
