@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Metadata } from "next";
 import { Rubik_Mono_One, Inter } from "next/font/google";
 
 const rubik = Rubik_Mono_One({
@@ -6,9 +7,10 @@ const rubik = Rubik_Mono_One({
   weight: "400",
   variable: "--font-rubik",
 });
+
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "When is my meeting?",
   description: "Convert time between different countries",
   openGraph: {

@@ -1,0 +1,14 @@
+export const DEFAULT_FROM_TIMEZONE = "America/New_York";
+export const OUTPUT_TIME_FORMAT = "hh:mm a";
+export const SKELETON_LOADING_TEXT = "Loading...";
+export const MAIN_TITLE_TEXT = "When is my meeting?";
+export const INITIAL_CONVERTED_TIME = "--:-- --";
+export const SELECTED_TIME = "2023-01-01T00:00:00.000Z";
+export const LOCAL_TIME_STRING = "en-US";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/ailinn/";
+export const LINKEDIN_USERNAME = "@ailinn";
+export const FROM_TEXT = "From";
+export const TO_TEXT = "To";
+export const SELECTED_TIME_TEXT = "Time";
+export const CONVERTED_TIME_TEXT = "Converted Time";
+export const TIMEZONE_TEXT = "Timezone";
