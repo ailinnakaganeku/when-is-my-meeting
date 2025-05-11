@@ -7,6 +7,7 @@ import { useHydration } from "./hooks/useHydration";
 import { Skeleton } from "./components/ui/skeleton";
 import CountrySelect from "./components/CountrySelect";
 import CustomTimePicker from "./components/CustomTimePicker";
+import Svg from "./components/Svg";
 import { manualZonedTimeToUtc } from "./utils/dateUtils";
 import {
   CONVERTED_TIME_TEXT,
@@ -23,7 +24,6 @@ import {
   SKELETON_LOADING_TEXT,
   TO_TEXT,
 } from "./utils/constants";
-import Svg from "./components/Svg";
 
 export default function Home() {
   const hydrated = useHydration();
